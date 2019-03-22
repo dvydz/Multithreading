@@ -1,6 +1,7 @@
 //Thread Implementation
 package com.multithreading.thread;
 
+//Extending class must override run()
 class Hi extends Thread{
 	public void run() {
 		for(int i=0;i<5;i++) {
@@ -25,10 +26,16 @@ public class ThreadDemo {
 	public static void main(String[] args) {
 		System.out.println("Thread DEMO");
 		Hi hi=new Hi();
+		hi.setName("ThreadONE");
+		System.out.println(hi.getName());
+		
 		Hello hello=new Hello();
+		
+		//.run() only calls the function within same thread, .start(Creates a new thread)
 		hi.start();
 		//10 ms delay between to two to prevent clash, and run them simultaneously
 		try {Thread.sleep(10);} catch (InterruptedException e) {e.printStackTrace();}
-		hello.start();
+		hello.start();	
+		
 	}
 }
