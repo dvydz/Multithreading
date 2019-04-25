@@ -33,6 +33,7 @@ class Producer implements Runnable{
 	}
 	@Override
 	public void run() {
+		System.out.println("Hello");
 		int i=0;
 		while(true) {
 			q.put(i++);
